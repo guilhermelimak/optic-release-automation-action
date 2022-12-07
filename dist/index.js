@@ -28131,7 +28131,8 @@ function getMonorepoData({ context, inputs, github }) {
 }
 
 module.exports = async function ({ github, context, inputs }) {
-  logInfo(JSON.stringify(github), JSON.stringify( context))
+  logInfo(JSON.stringify(github))
+  logInfo(JSON.stringify( context))
 
   const { monorepoPackage, monorepoRoot } = getMonorepoData({
     context,
