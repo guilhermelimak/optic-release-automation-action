@@ -38,6 +38,7 @@ module.exports = async function ({ github, context, inputs }) {
   const options = {
     cwd: monorepoPackage ? `${monorepoRoot}/${monorepoPackage}` : '.',
   }
+  console.log('Building with cwd:, cwd, github, context)
 
   try {
     await exec('node', ['-v'], options)
