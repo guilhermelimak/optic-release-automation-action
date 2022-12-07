@@ -3,6 +3,7 @@
 const core = require('@actions/core')
 const { exec } = require('@actions/exec')
 const parseReleaseMetadata = require('./utils/parseReleaseMetadata')
+const { logError, logInfo, logWarning } = require('./log')
 
 function getMonorepoData({ context, inputs, github }) {
   if (github.event_name === 'pull_request' && context?.payload?.pull_request) {
@@ -16,7 +17,7 @@ function getMonorepoData({ context, inputs, github }) {
 }
 
 module.exports = async function ({ github, context, inputs }) {
-  core.info(github, context)
+  logInfo(github, context)
   
   const { monorepoPackage, monorepoRoot } = getMonorepoData({
     context,
